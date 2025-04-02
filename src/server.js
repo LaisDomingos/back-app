@@ -1,10 +1,8 @@
 require("dotenv").config(); // Carrega as variáveis de ambiente
 const express = require("express");
 const connectToDatabase = require("./config/database");
-require("dotenv").config(); // Carrega as variáveis do arquivo .env
 
 const app = express();
-const PORT = process.env.PORT || 4000;
 
 // Conecta ao banco de dados
 connectToDatabase();
@@ -16,7 +14,5 @@ app.use(express.json());
 const routes = require("./routes");
 app.use("/api", routes);
 
-// Inicia o servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+// Exporta o app para a Vercel
+module.exports = app;
