@@ -15,6 +15,6 @@ const justificationSchema = new mongoose.Schema(
   }
 );
 
-const Justify = mongoose.model("Justification", justificationSchema);
+const Justification = mongoose.model("Justification", justificationSchema);
 
-module.exports = Justify;
+module.exports = Justification;

@@ -1,6 +1,6 @@
 require("dotenv").config(); // Carrega as variáveis de ambiente
 const express = require("express");
-const connectToDatabase = require("./config/database");
+const connectToDatabase = require("./src/config/database");
 
 const app = express();
 
@@ -11,7 +11,7 @@ connectToDatabase();
 app.use(express.json());
 
 // Rotas
-const routes = require("./routes");
+const routes = require("./src/routes");
 app.use("/api", routes);
 
 // Exporta o app para a Vercel
