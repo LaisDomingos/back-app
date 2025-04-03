@@ -17,7 +17,7 @@ connectToDatabase();
 app.use(express.json());
 
 // Rotas (faça a importação das suas rotas)
-const routes = require("./src/routes");
+const routes = require("./routes");
 app.use("/api", routes);
 
 // Inicia o servidor
