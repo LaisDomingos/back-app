@@ -2,7 +2,7 @@
 require("dotenv").config(); 
 
 const express = require("express");
-const connectToDatabase = require("./src/config/database");
+const connectToDatabase = require("./config/database");
 
 // Cria a aplicação Express
 const app = express();
