@@ -1,18 +1,22 @@
-require("dotenv").config(); // Carrega as variáveis de ambiente
+// Carrega as variáveis de ambiente
+require("dotenv").config(); 
+
 const express = require("express");
 const connectToDatabase = require("./src/config/database");
-require("dotenv").config(); // Carrega as variáveis do arquivo .env
 
+// Cria a aplicação Express
 const app = express();
-const PORT = process.env.PORT || 4000;
+
+// Define a porta do servidor. O Render atribui automaticamente a variável process.env.PORT
+const PORT = process.env.PORT || 4000; 
 
 // Conecta ao banco de dados
 connectToDatabase();
 
-// Middleware para JSON
+// Middleware para lidar com JSON
 app.use(express.json());
 
-// Rotas
+// Rotas (faça a importação das suas rotas)
 const routes = require("./src/routes");
 app.use("/api", routes);
 
@@ -20,3 +24,4 @@ app.use("/api", routes);
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
