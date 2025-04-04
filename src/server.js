@@ -2,6 +2,7 @@
 require("dotenv").config(); 
 
 const express = require("express");
+const cors = require("cors"); // Importa o pacote CORS
 const connectToDatabase = require("./config/database");
 
 // Cria a aplicação Express
@@ -16,6 +17,14 @@ connectToDatabase();
 // Middleware para lidar com JSON
 app.use(express.json());
 
+// Middleware para permitir CORS
+app.use(cors());  // Permite todas as origens para todas as rotas
+
+// Se quiser permitir apenas um domínio específico, use o código abaixo:
+// app.use(cors({
+//   origin: 'https://seu-dominio-frontend.com',
+// }));
+
 // Rotas (faça a importação das suas rotas)
 const routes = require("./routes");
 app.use("/api", routes);
@@ -24,4 +33,3 @@ app.use("/api", routes);
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
-
