@@ -12,9 +12,9 @@ const getAllTags = async (req, res) => {
 
 // Buscar tag pelo serial number
 const getTagBySerialNumber = async (req, res) => {
-    const { id } = req.params; // Pega o serial_number do parâmetro da URL
+    const { identification } = req.params; // Pega o identification do parâmetro da URL
     try {
-        const tag = await Tag.findOne({ id });
+        const tag = await Tag.findOne({ identification }); // Busca no banco pelo identification
         if (!tag) {
             return res.status(404).json({ message: "Tag não encontrada" });
         }
