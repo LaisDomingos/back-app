@@ -6,7 +6,7 @@ const { getAllTags, getTagBySerialNumber, createTag } = require("../controllers/
 router.get("/tags", getAllTags);
 
 // Rota para buscar tag pelo serial number
-router.get("/tags/:serial_number", getTagBySerialNumber);
+router.get("/tags/:identification", getTagBySerialNumber);
 
 // Rota para criar uma nova tag
 router.post("/tags", createTag);
